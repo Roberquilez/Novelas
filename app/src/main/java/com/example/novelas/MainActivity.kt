@@ -12,11 +12,13 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.novelmanager.ui.theme.NovelManagerTheme
+import com.example.novelas.Novel
 
 class MainActivity : ComponentActivity() {
     private val novelViewModel: NovelViewModel by viewModels()
@@ -43,6 +45,17 @@ fun MainScreen(novelViewModel: NovelViewModel, modifier: Modifier = Modifier) {
     val context = LocalContext.current
 
     Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .weight(1f),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "Hola, bienvenido",
+                style = MaterialTheme.typography.headlineMedium
+            )
+        }
         LazyColumn(modifier = Modifier.weight(1f)) {
             items(novels.value) { novel ->
                 NovelItem(novel, novelViewModel)

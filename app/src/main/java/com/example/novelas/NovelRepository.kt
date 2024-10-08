@@ -2,6 +2,7 @@ package com.example.novelmanager
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import com.example.novelas.Novel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
